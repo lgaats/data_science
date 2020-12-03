@@ -438,6 +438,14 @@ div.tocify {
 hist(samples)</code></pre>
 <p><img src="journal_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>When you knit this R Markdown document, you will see that the histogram is printed to the page, along with the R code. This document can be set up to hide the R code in the webpage, just delete the comment (hashtag) from the cold folding option in the yaml header up top. For purposes of letting yourself see the code, and me see the code, best to keep it the way that it is. You’ll learn that all of these things and more can be customized in each R code block.</p>
+<pre class="r"><code>numbers &lt;- 1:1000
+
+# This will print the first 10 elements of the vector numbers
+numbers[1:10]</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code># This will plot a histogram of 100 random elements of the vector numbers
+hist(sample(numbers, 100, replace = T))</code></pre>
+<p><img src="journal_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 
 
