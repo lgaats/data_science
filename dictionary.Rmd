@@ -1,6 +1,6 @@
 ---
 title: "Dictionary"
-author: "Joschka Schwarz"
+author: "Lukas Gaats"
 date: "`r Sys.Date()`"
 output: 
   html_document:
@@ -299,3 +299,15 @@ rnorm(100, mean = 50, sd=2)
 ```
 
 Because of `eval=F`, the code will not be evaluated in the last piece of code.
+
+# Tidyverse
+`pivot_longer()` is useful if columns of your data are variables
+```{r, eval=F} 
+diamonds2 %>% 
+  pivot_longer(cols = c("2008", "2009"),
+               names_to = "year",
+               values_to = "price") %>%
+  head(n = 5) 
+```
+
+
