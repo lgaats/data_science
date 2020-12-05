@@ -64,3 +64,29 @@ hist(sample(numbers, 100, replace = T))
 ```
 
 
+```{r plot, fig.width=14, fig.height=7}
+
+sales_by_location_tbl %>%
+  
+  # Setup canvas with the columns state (x-axis) and sales (y-axis)
+  ggplot(aes(x = reorder(state, -sales), y = sales)) +
+  
+  # Geometries
+  geom_col(fill = "#2DC6D6") + # Use geom_col for a bar plot
+  geom_label(aes(label = sales_text)) + # Adding labels to the bars
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  
+  # Formatting
+  # scale_y_continuous(labels = scales::dollar) + # Change the y-axis. 
+  # Again, we have to adjust it for euro values
+  scale_y_continuous(labels = scales::dollar_format(big.mark = ".", 
+                                                    decimal.mark = ",", 
+                                                    prefix = "", 
+                                                    suffix = " \u20AC")) +
+  labs(
+    title    = "Revenue by location",
+    subtitle = "North Rhine Westphalia has the hightest share",
+    x = "", # Override defaults for x and y
+    y = "Revenue"
+  )
+```
